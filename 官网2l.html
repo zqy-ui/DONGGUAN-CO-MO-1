@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东莞市成铭胶粘剂有限公司 - 热熔胶源头厂家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config={
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#4080FF',
+                        light: '#F5F9FF',
+                        gray: '#86909C',
+                        dark: '#1D2129'
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto { content-visibility: auto; }
+            .shadow-card { box-shadow: 0 4px 20px rgba(22, 93, 255, 0.08); }
+            .sidebar-link { @apply flex items-center px-5 py-3 rounded-lg transition-all duration-300; }
+            .sidebar-link.active { @apply bg-primary text-white; }
+            .tab-active { @apply bg-primary text-white; }
+            .carousel-item { transition: opacity 0.5s ease-in-out; }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light">
+    <!-- 移动端汉堡按钮 -->
+    <button id="menuToggle" class="fixed top-4 left-4 z-50 md:hidden w-10 h-10 bg-white rounded-lg shadow-card flex items-center justify-center text-primary text-xl">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <!-- 左侧边栏 -->
+        <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white shadow-card z-40 -translate-x-full md:translate-x-0 transition-transform duration-300">
+            <!-- Logo区域 -->
+            <div class="p-6 border-b border-gray/10">
+                <a href="#" class="flex items-center">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white text-xl font-bold">CM</div>
+                    <span class="ml-3 text-xl font-bold text-primary">成铭胶粘剂</span>
+                </a>
+            </div>
+            <!-- 侧边导航 -->
+            <nav class="p-4 space-y-2">
+                <a href="#home" class="sidebar-link active hover:bg-primary/10">
+                    <i class="fa fa-home mr-3"></i> 首页
+                </a>
+                <a href="#about" class="sidebar-link text-gray hover:bg-primary/10 hover:text-primary">
+                    <i class="fa fa-info-circle mr-3"></i> 关于我们
+                </a>
+                <a href="#products" class="sidebar-link text-gray hover:bg-primary/10 hover:text-primary">
+                    <i class="fa fa-cubes mr-3"></i> 产品中心
+                </a>
+                <a href="#solutions" class="sidebar-link text-gray hover:bg-primary/10 hover:text-primary">
+                    <i class="fa fa-wrench mr-3"></i> 粘接方案
+                </a>
+                <a href="#support" class="sidebar-link text-gray hover:bg-primary/10 hover:text-primary">
+                    <i class="fa fa-headphones mr-3"></i> 服务与支持
+                </a>
+                <a href="#news" class="sidebar-link text-gray hover:bg-primary/10 hover:text-primary">
+                    <i class="fa fa-newspaper-o mr-3"></i> 新闻动态
+                </a>
+                <a href="#contact" class="sidebar-link text-gray hover:bg-primary/10 hover:text-primary">
+                    <i class="fa fa-phone mr-3"></i> 联系我们
+                </a>
+            </nav>
+        </aside>
+
+        <!-- 右侧主内容区 -->
+        <main class="flex-1 md:ml-64">
+            <!-- 顶部功能栏 -->
+            <div class="sticky top-0 bg-white shadow-sm z-30 px-6 py-4">
+                <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <!-- 顶部右侧工具 -->
+                    <div class="flex items-center space-x-4 md:space-x-6 ml-10 md:ml-0">
+                        <!-- 搜索框 -->
+                        <div class="relative flex-1 md:w-64">
+                            <select id="searchEngine" class="absolute left-0 top-0 h-full px-2 bg-light border-r border-gray/20 rounded-l-lg focus:outline-none text-sm">
+                                <option value="https://www.baidu.com/s?wd=">百度</option>
+                                <option value="https://cn.bing.com/search?q=">必应</option>
+                                <option value="https://www.google.com/search?q=">谷歌</option>
+                            </select>
+                            <input type="text" id="searchInput" placeholder="搜索产品、方案..." class="w-full pl-16 pr-10 py-2 rounded-lg border border-gray/20 focus:outline-none focus:border-primary">
+                            <button id="searchBtn" class="absolute right-0 top-0 h-full px-3 text-gray hover:text-primary">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <!-- 登录、中英、电话 -->
+                        <a href="#" class="text-gray hover:text-primary hidden md:flex items-center"><i class="fa fa-user mr-1"></i> 登录</a>
+                        <a href="#" class="text-gray hover:text-primary hidden md:flex items-center"><i class="fa fa-globe mr-1"></i> EN</a>
+                        <a href="tel:400-123-4567" class="text-gray hover:text-primary flex items-center"><i class="fa fa-phone mr-1"></i> <span class="hidden md:inline">400-123-4567</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 内容区 -->
+            <div class="px-6 py-8 max-w-7xl mx-auto">
+                <!-- 首页轮播 -->
+                <section id="home" class="mb-20">
+                    <div class="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-card">
+                        <div id="carousel" class="w-full h-full">
+                            <div class="carousel-item absolute w-full h-full bg-gradient-to-r from-primary/90 to-secondary/90 flex items-center justify-center opacity-100">
+                                <div class="text-center text-white px-4">
+                                    <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">东莞市成铭胶粘剂有限公司</h1>
+                                    <p class="text-[clamp(1.2rem,2vw,1.5rem)] mb-8">热熔胶源头厂家 研产销一体化</p>
+                                    <div class="flex flex-wrap justify-center gap-4">
+                                        <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg"><i class="fa fa-industry mr-2"></i>源头工厂直供</div>
+                                        <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg"><i class="fa fa-flask mr-2"></i>专有配方定制</div>
+                                        <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg"><i class="fa fa-gift mr-2"></i>支持免费寄样</div>
+                                        <div class="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg"><i class="fa fa-cogs mr-2"></i>精准技术售后</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item absolute w-full h-full bg-cover bg-center opacity-0" style="background-image: url('https://picsum.photos/id/1049/1920/1080')">
+                                <div class="w-full h-full bg-primary/50 flex items-center justify-center">
+                                    <div class="text-center text-white px-4"><h2 class="text-3xl md:text-4xl font-bold mb-4">高端热熔胶研发生产</h2><p class="text-lg md:text-xl">25年行业深耕，品质值得信赖</p></div>
+                                </div>
+                            </div>
+                            <div class="carousel-item absolute w-full h-full bg-cover bg-center opacity-0" style="background-image: url('https://picsum.photos/id/180/1920/1080')">
+                                <div class="w-full h-full bg-primary/50 flex items-center justify-center">
+                                    <div class="text-center text-white px-4"><h2 class="text-3xl md:text-4xl font-bold mb-4">全行业粘接解决方案</h2><p class="text-lg md:text-xl">覆盖医疗、包装、汽车等多领域</p></div>
+                                </div>
+                            </div>
+                            <div class="carousel-item absolute w-full h-full bg-cover bg-center opacity-0" style="background-image: url('https://picsum.photos/id/366/1920/1080')">
+                                <div class="w-full h-full bg-primary/50 flex items-center justify-center">
+                                    <div class="text-center text-white px-4"><h2 class="text-3xl md:text-4xl font-bold mb-4">定制化热熔胶配方</h2><p class="text-lg md:text-xl">针对难粘材质，提供专属方案</p></div>
+                                </div>
+                            </div>
+                            <div class="carousel-item absolute w-full h-full bg-cover bg-center opacity-0" style="background-image: url('https://picsum.photos/id/401/1920/1080')">
+                                <div class="w-full h-full bg-primary/50 flex items-center justify-center">
+                                    <div class="text-center text-white px-4"><h2 class="text-3xl md:text-4xl font-bold mb-4">免费寄样 技术指导</h2><p class="text-lg md:text-xl">一对一服务，全程解决粘接难题</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/30 hover:bg-white/50 rounded-full flex items-center justify-center text-white" onclick="prevSlide()"><i class="fa fa-angle-left"></i></button>
+                        <button class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/30 hover:bg-white/50 rounded-full flex items-center justify-center text-white" onclick="nextSlide()"><i class="fa fa-angle-right"></i></button>
+                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+                            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-dot active" onclick="goToSlide(0)"></button>
+                            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-dot" onclick="goToSlide(1)"></button>
+                            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-dot" onclick="goToSlide(2)"></button>
+                            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-dot" onclick="goToSlide(3)"></button>
+                            <button class="w-3 h-3 rounded-full bg-white opacity-50 carousel-dot" onclick="goToSlide(4)"></button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 关于我们 -->
+                <section id="about" class="mb-20 scroll-mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">关于我们</h2>
+                        <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-card p-8">
+                        <p class="text-gray text-lg leading-relaxed text-center max-w-3xl mx-auto">
+                            成铭胶粘剂深耕热熔胶行业25年，服务全国各行业客户；集研发、生产、销售、定制方案于一体，可根据客户材质、工艺、环境定制专用热熔胶，稳定供货，品质可控。
+                        </p>
+                        <!-- 核心优势卡片 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                            <div class="p-6 rounded-xl bg-light hover:bg-primary/5 transition-colors group">
+                                <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white">
+                                    <i class="fa fa-industry text-xl text-primary group-hover:text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-primary mb-2">源头工厂实力</h3>
+                                <p class="text-gray text-sm">自有生产基地、完整生产线、标准化车间与检测实验室，产能充足，品质、交期稳定。</p>
+                            </div>
+                            <div class="p-6 rounded-xl bg-light hover:bg-primary/5 transition-colors group">
+                                <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white">
+                                    <i class="fa fa-flask text-xl text-primary group-hover:text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-primary mb-2">专业研发定制</h3>
+                                <p class="text-gray text-sm">专业研发团队，可针对难粘材质、高低温环境、高速生产工况定制专属热熔胶配方。</p>
+                            </div>
+                            <div class="p-6 rounded-xl bg-light hover:bg-primary/5 transition-colors group">
+                                <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white">
+                                    <i class="fa fa-cubes text-xl text-primary group-hover:text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-primary mb-2">全行业覆盖应用</h3>
+                                <p class="text-gray text-sm">产品适配医疗卫生、食品包装、标签胶带、汽车内饰、书刊装订、防水密封、滤清器等多行业场景。</p>
+                            </div>
+                            <div class="p-6 rounded-xl bg-light hover:bg-primary/5 transition-colors group">
+                                <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white">
+                                    <i class="fa fa-handshake-o text-xl text-primary group-hover:text-white"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-primary mb-2">贴心售前售后服务</h3>
+                                <p class="text-gray text-sm">免费提供样品测试、现场用胶技术指导、选型方案匹配，全程一对一跟进，解决粘接难题。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 产品中心 -->
+                <section id="products" class="mb-20 scroll-mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">产品中心</h2>
+                        <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    </div>
+                    <!-- 二级分类标签 -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-8">
+                        <button class="tab-btn tab-active px-5 py-2 rounded-lg text-sm transition-colors" data-tab="all">全部产品</button>
+                        <button class="tab-btn bg-white text-gray px-5 py-2 rounded-lg text-sm transition-colors hover:bg-primary/10" data-tab="pack">包装热熔胶</button>
+                        <button class="tab-btn bg-white text-gray px-5 py-2 rounded-lg text-sm transition-colors hover:bg-primary/10" data-tab="health">卫材热熔胶</button>
+                        <button class="tab-btn bg-white text-gray px-5 py-2 rounded-lg text-sm transition-colors hover:bg-primary/10" data-tab="auto">汽车热熔胶</button>
+                    </div>
+                    <!-- 产品卡片网格 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="tab-card all pack bg-white rounded-xl shadow-card overflow-hidden group hover:shadow-lg transition-shadow">
+                            <div class="flex items-center p-6">
+                                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fa fa-box text-2xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary mb-1">包装专用热熔胶</h3>
+                                    <p class="text-gray text-sm">高强度、快固化，适配食品包装、纸箱封箱等场景。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-card all health bg-white rounded-xl shadow-card overflow-hidden group hover:shadow-lg transition-shadow">
+                            <div class="flex items-center p-6">
+                                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fa fa-heartbeat text-2xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary mb-1">卫材专用热熔胶</h3>
+                                    <p class="text-gray text-sm">环保无毒、柔软透气，适用于纸尿裤、卫生巾等卫生用品。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-card all auto bg-white rounded-xl shadow-card overflow-hidden group hover:shadow-lg transition-shadow">
+                            <div class="flex items-center p-6">
+                                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fa fa-car text-2xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary mb-1">汽车内饰热熔胶</h3>
+                                    <p class="text-gray text-sm">耐高低温、粘接牢固，适配汽车内饰、顶棚、线束等场景。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 粘接方案 -->
+                <section id="solutions" class="mb-20 scroll-mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">粘接方案</h2>
+                        <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-xl shadow-card p-6 hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl font-bold text-primary mb-4"><i class="fa fa-industry mr-2"></i>工业粘接方案</h3>
+                            <p class="text-gray">针对家电、电子、家具等工业领域，提供耐高温、高强度的热熔胶粘接解决方案。</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-card p-6 hover:shadow-lg transition-shadow">
+                            <h3 class="text-xl font-bold text-primary mb-4"><i class="fa fa-leaf mr-2"></i>环保粘接方案</h3>
+                            <p class="text-gray">无溶剂、低气味环保热熔胶，适配食品接触、医疗卫生等对环保要求高的场景。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服务与支持 -->
+                <section id="support" class="mb-20 scroll-mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">服务与支持</h2>
+                        <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-card p-8">
+                        <ul class="space-y-4 text-gray">
+                            <li class="flex items-start"><i class="fa fa-check-circle text-primary mr-3 mt-1"></i><span>免费提供样品测试，支持小批量试单</span></li>
+                            <li class="flex items-start"><i class="fa fa-check-circle text-primary mr-3 mt-1"></i><span>专业技术团队提供现场用胶指导与工艺优化</span></li>
+                            <li class="flex items-start"><i class="fa fa-check-circle text-primary mr-3 mt-1"></i><span>24小时在线客服，快速响应咨询与售后问题</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 新闻动态 -->
+                <section id="news" class="mb-20 scroll-mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">新闻动态</h2>
+                        <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-xl shadow-card p-6 hover:shadow-lg transition-shadow">
+                            <span class="text-sm text-gray">2026-04-15</span>
+                            <h3 class="text-lg font-bold text-primary mt-2 mb-3">成铭胶粘剂荣获行业“优质供应商”称号</h3>
+                            <p class="text-gray text-sm">凭借25年品质坚守与技术创新，公司在行业峰会中获颁荣誉，彰显品牌实力。</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-card p-6 hover:shadow-lg transition-shadow">
+                            <span class="text-sm text-gray">2026-03-20</span>
+                            <h3 class="text-lg font-bold text-primary mt-2 mb-3">新型耐高温热熔胶研发成功并量产</h3>
+                            <p class="text-gray text-sm">新品可耐受-40℃至180℃极端温度，适配新能源汽车与高端电子制造场景。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 联系我们 -->
+                <section id="contact" class="mb-20 scroll-mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">联系我们</h2>
+                        <div class="w-20 h-1 bg-primary mx-auto"></div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-card p-8">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa fa-map-marker text-xl text-primary"></i>
+                                </div>
+                                <h3 class="font-bold text-primary mb-2">公司地址</h3>
+                                <p class="text-gray text-sm">广东省东莞市XX镇XX工业区XX路88号</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa fa-phone text-xl text-primary"></i>
+                                </div>
+                                <h3 class="font-bold text-primary mb-2">联系电话</h3>
+                                <p class="text-gray text-sm">400-123-4567<br>0769-12345678</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa fa-envelope text-xl text-primary"></i>
+                                </div>
+                                <h3 class="font-bold text-primary mb-2">电子邮箱</h3>
+                                <p class="text-gray text-sm">contact@cmadhesive.com<br>sales@cmadhesive.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 页脚 -->
+            <footer class="bg-primary text-white py-8 px-6">
+                <div class="max-w-7xl mx-auto text-center">
+                    <p class="text-white/70 text-sm">© 2026 东莞市成铭胶粘剂有限公司 版权所有 | 粤ICP备12345678号</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // 移动端侧边栏切换
+        const menuToggle=document.getElementById('menuToggle');
+        const sidebar=document.getElementById('sidebar');
+        menuToggle.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
+        // 点击侧边栏链接自动关闭移动端菜单
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', () => window.innerWidth < 768 && sidebar.classList.add('-translate-x-full'));
+        });
+
+        // 轮播图逻辑
+        let currentSlide=0;
+        const slides=document.querySelectorAll('.carousel-item');
+        const dots=document.querySelectorAll('.carousel-dot');
+        function updateCarousel() {
+            slides.forEach((s, i) => s.style.opacity=i === currentSlide ? '1' : '0');
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+        }
+        function nextSlide() { currentSlide=(currentSlide+1) % slides.length; updateCarousel(); }
+        function prevSlide() { currentSlide=(currentSlide-1+slides.length) % slides.length; updateCarousel(); }
+        function goToSlide(index) { currentSlide=index; updateCarousel(); }
+        setInterval(nextSlide, 5000);
+
+        // 产品标签切换
+        const tabBtns=document.querySelectorAll('.tab-btn');
+        const tabCards=document.querySelectorAll('.tab-card');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('tab-active'), b.classList.add('bg-white', 'text-gray'));
+                btn.classList.add('tab-active'), btn.classList.remove('bg-white', 'text-gray');
+                const tab=btn.dataset.tab;
+                tabCards.forEach(card => card.style.display=tab === 'all' || card.classList.contains(tab) ? 'block' : 'none');
+            });
+        });
+
+        // 滚动监听-侧边栏高亮
+        const sections=document.querySelectorAll('section[id]');
+        const sidebarLinks=document.querySelectorAll('.sidebar-link');
+        window.addEventListener('scroll', () => {
+            let current='home';
+            sections.forEach(section => {
+                const top=section.offsetTop-100;
+                if (window.scrollY >= top) current=section.id;
+            });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+
+        // 搜索功能
+        const searchBtn=document.getElementById('searchBtn');
+        const searchInput=document.getElementById('searchInput');
+        const searchEngine=document.getElementById('searchEngine');
+        searchBtn.addEventListener('click', () => {
+            const keyword=searchInput.value.trim();
+            if (keyword) window.open(searchEngine.value+encodeURIComponent(keyword), '_blank');
+        });
+        searchInput.addEventListener('keypress', e => e.key === 'Enter' && searchBtn.click());
+    </script>
+</body>
+</html>
